@@ -24,11 +24,27 @@ resource "aws_apprunner_service" "service" {
       image_repository_type = "ECR"
     }
   }
+
+
+  # network_configuration {
+  #   egress_configuration {
+  #     egress_type       = "VPC"
+  #     vpc_connector_arn = aws_apprunner_vpc_connector.connector.arn
+  #   }
+  # }
+
+
   instance_configuration {
     instance_role_arn = aws_iam_role.apprunner-instance-role.arn
   }
-  depends_on = [aws_iam_role.apprunner-service-role, aws_db_instance.db, aws_route_table.private-route-table, null_resource.petclinic_springboot]
+  depends_on = [aws_iam_role.apprunner-service-role, aws_db_instance.db/*, aws_route_table.private-route-table*/, null_resource.petclinic_springboot]
 }
+
+# resource "aws_apprunner_vpc_connector" "connector" {
+#   vpc_connector_name = "petclinic_vpc_connector"
+#   subnets            = [data.aws_subnet.public1.id, data.aws_subnet.public2.id]
+#   security_groups    = [aws_security_group.db-sg.id]
+# }
 
 output "apprunner_service_url" {
   value = "https://${aws_apprunner_service.service.service_url}"

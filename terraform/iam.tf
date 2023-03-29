@@ -56,6 +56,7 @@ data "aws_iam_policy_document" "apprunner-instance-role-policy" {
   statement {
     actions = ["ssm:GetParameter"]
     effect = "Allow"
-    resources = ["arn:aws:ssm:*:${data.aws_caller_identity.current.account_id}:parameter${data.aws_ssm_parameter.dbpassword.name}"]
+    #resources = ["arn:aws:ssm:*:${data.aws_caller_identity.current.account_id}:parameter${data.aws_ssm_parameter.dbpassword.name}"]
+    resources = ["arn:aws:ssm:*:${data.aws_caller_identity.current.account_id}:parameter${aws_ssm_parameter.default_postgres_ssm_parameter_password.name}"]
   }
 }

@@ -15,14 +15,34 @@ variable "stack" {
   default     = "apprunner-workshop"
 }
 
-variable "vpc_cidr" {
-  description = "CIDR for the VPC"
-  default     = "172.17.0.0/16"
+variable "vpc_id" {
+  description = "VPC ID"
+  default     = "vpc-0616ddfc7c95f30a4"
 }
+
+variable "subnet1_id" {
+  description = "Subnet ID"
+  default     = "subnet-0d30c8f8e934da9b8"
+}
+
+variable "subnet2_id" {
+  description = "Subnet ID"
+  default     = "subnet-0cbce64c4745ce636"
+}
+
+# variable "vpc_cidr" {
+#   description = "CIDR for the VPC"
+#   default     = "172.17.0.0/16"
+# }
+
+# variable "vpc_public_subnets" {
+#   description = "CIDRs for public subnets"
+#   default = ["172.17.4.0/24", "172.17.5.0/24", "172.17.6.0/24"]
+# }
 
 variable "az_count" {
   description = "Number of AZs to cover in a given AWS region"
-  default     = "2"
+  default     = "1"
 }
 
 variable "aws_ecr" {
@@ -78,10 +98,12 @@ variable "db_initialize_mode" {
   description = "RDS initialize"
   default     = "always"
 }
-variable "ssm_parameter_store_name" {
-  description = "RDS DB Password Parameter Store name"
-  default     = "always"
-}
+
+# variable "ssm_parameter_store_name" {
+#   description = "RDS DB Password Parameter Store name"
+#   default     = "always"
+# }
+
 # Source repo name and branch
 
 variable "source_repo_name" {

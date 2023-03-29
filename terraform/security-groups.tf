@@ -2,10 +2,10 @@
 # SECURITY GROUP FOR RDS
 # ---------------------------------------------------------------------------------------------------------------------
 
-resource "aws_security_group" "db-sg" {
+/*resource "aws_security_group" "db-sg" {
   name        = "${var.stack}-db-sg"
   description = "Access to the RDS instances from the VPC"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = data.aws_vpc.main.id
 
   ingress {
     from_port   = 3306
@@ -25,6 +25,29 @@ resource "aws_security_group" "db-sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "${var.stack}-db-sg"
+  }
+}*/
+
+resource "aws_security_group" "db-sg" {
+  name   = "${var.stack}-db-sg"
+  vpc_id = data.aws_vpc.main.id
+
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
