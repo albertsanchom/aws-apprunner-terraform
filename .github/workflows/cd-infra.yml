@@ -1,4 +1,4 @@
-on:
+on: [ workflow_dispatch ]
   # workflow_dispatch:
   #   inputs:
   #     environment:
@@ -7,7 +7,6 @@ on:
   #       required: true
   #       options:
   #         - Demo
-  workflow_dispatch:
   push:
     branches: [master]
     paths: [ 'terraform/**' ]
