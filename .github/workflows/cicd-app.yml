@@ -21,4 +21,4 @@ jobs:
           aws-region: "eu-west-1"
           aws-access-key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          pipeline-name: "petclinic-main-Pipeline"
+          pipeline-name: "petclinic-master-Pipeline"
