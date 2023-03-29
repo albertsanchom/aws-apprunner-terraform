@@ -14,7 +14,9 @@ jobs:
     environment: Demo
     steps:
       - uses: actions/checkout@v3
-
+        with:
+           fetch-depth: 0
+           
       - name: Fix detected dubious ownership in repository at '/github/workspace' error
         run: git config --global --add safe.directory /github/workspace
 
