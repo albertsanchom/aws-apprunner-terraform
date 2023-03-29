@@ -134,8 +134,10 @@ variable "codebuild_cache_bucket_name" {
 }
 variable "codecommit_username" {
   description = "Codecommit user name for config and push orperation"
+  default = "Albert"
 }
 variable "codecommit_email" {
   description = "Codecommit email for git push orperation"
+  default = "albertsanchom@gencat.cat"
 }
 
