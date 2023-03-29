@@ -1,10 +1,10 @@
 on: [ workflow_dispatch ]
   push:
-   branches: [develop]
-   paths: [ 'terraform/**' ]
+    branches: [develop]
+    paths: [ 'terraform/**' ]
   pull_request:
-   branches: [develop]
-   paths-ignore: [ 'terraform/**' ]
+    branches: [develop]
+    paths-ignore: [ 'terraform/**' ]
 
 jobs:
   scan-iac:

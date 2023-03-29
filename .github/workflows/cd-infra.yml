@@ -1,12 +1,4 @@
 on: [ workflow_dispatch ]
-  # workflow_dispatch:
-  #   inputs:
-  #     environment:
-  #       type: choice
-  #       description: Select the environment
-  #       required: true
-  #       options:
-  #         - Demo
   push:
     branches: [master]
     paths: [ 'terraform/**' ]
