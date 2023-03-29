@@ -143,9 +143,9 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the jar
-      - mvn clean package -Dmaven.test.skip=true
+      - mvn clean package -f ./petclinic/pom.xml -Dmaven.test.skip=true
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest .
+      - docker build -t $REPOSITORY_URI:latest ./petclinic
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
