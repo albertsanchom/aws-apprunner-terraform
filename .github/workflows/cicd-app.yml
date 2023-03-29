@@ -12,6 +12,9 @@ jobs:
     name: Execute AWS CodePipeline
     runs-on: ubuntu-latest
     environment: Demo
+    defaults:
+      run:
+        working-directory: ./petclinic
     steps:
       - uses: actions/checkout@v3
         with:
