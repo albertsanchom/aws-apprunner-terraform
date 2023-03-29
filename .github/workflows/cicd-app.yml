@@ -8,9 +8,10 @@ on:
     paths: [ 'petclinic/**' ]
 
 jobs:
-  build:
+  cicd-application:
     name: Execute AWS CodePipeline
     runs-on: ubuntu-latest
+    environment: Demo
     steps:
       - uses: actions/checkout@v3
       - name: Trigger AWS CodePipeline
