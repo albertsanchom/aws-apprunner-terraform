@@ -22,7 +22,7 @@ resource "aws_db_instance" "db" {
   identifier              = "petclinic"
   allocated_storage       = 5
   engine                  = "mysql"
-  engine_version          = "5.7"
+  engine_version          = "8.0"
   port                    = "3306"
   instance_class          = var.db_instance_type
   db_name                 = var.db_name
@@ -32,7 +32,7 @@ resource "aws_db_instance" "db" {
   vpc_security_group_ids  = [aws_security_group.db-sg.id]
   multi_az                = false
   db_subnet_group_name    = aws_db_subnet_group.db-subnet-grp.id
-  parameter_group_name    = "default.mysql5.7"
+  parameter_group_name    = "default.mysql8.0"
   publicly_accessible     = true
   skip_final_snapshot     = true
   backup_retention_period = 0
