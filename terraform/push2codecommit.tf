@@ -2,7 +2,6 @@
 resource "null_resource" "push_petcliniccode" {
   provisioner "local-exec" {
     command = <<EOT
-	cd ../petclinic/
 	git config --global --unset credential.helper
 	git config --system --unset credential.helper
 #	git config --global user.name "Imtranur Rahman"
