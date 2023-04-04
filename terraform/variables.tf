@@ -76,7 +76,7 @@ variable "min_size" {
 
 variable "db_instance_type" {
   description = "RDS instance type"
-  default     = "db.t3.medium"
+  default     = "db.t3.micro"
 }
 
 variable "db_name" {
